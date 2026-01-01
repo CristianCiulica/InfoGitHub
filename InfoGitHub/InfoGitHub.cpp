@@ -1,20 +1,26 @@
-// InfoGitHub.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+//Subiect Bac2025 S3, Ex2.
 #include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+int a[100][100], i, j, n, m;
+int main(){
+	cin >> n >> m;
+	for (i = 0; i < n; i++)
+		for (j = 0; j < m; j++)
+			cin >> a[i][j];
+	int nrMin = INT_MAX, colMin;
+	for (i = 0; i < n; i++)
+		for (j = 0; j < m; j++)
+			if (a[i][j] < nrMin) {
+				nrMin = a[i][j];
+				colMin = j;
+			}
+	int ultimul = a[n - 1][m - 1];
+	for (i = 0; i < n; i++)
+		a[i][colMin] = ultimul;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < m; j++)
+			cout << a[i][j] << " ";
+		cout << endl;
+	}
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
