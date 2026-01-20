@@ -1,23 +1,19 @@
 #include<iostream>
 using namespace std;
-bool prim(int n) {
-	if (n < 2)
-		return false;
-	for (int i = 2; i < n / 2; i++)
-		if (n % i == 0)
-			return false;
-	return true;
-}
-
-void DNPI(int n) {
-	for (int d = 1; d <= n; d++)
-		if (d % 2 == 1 && prim(d) == false && n % d == 0)
-			cout << d << " ";
-}
-
+int a[20][20], i, j, sMax, n, m;
 int main() {
-	int n;
-	cin >> n;
-	DNPI(n);
+	cin >> n >> m;
+	for (i = 0; i < n; i++)
+		for (j = 0; j < m; j++)
+			cin >> a[i][j];
+	for (i = 0; i < n - 1; i++) {
+		for (j = 0; j < m - 1; j++) {
+			int sumaCurenta = 0;
+			sumaCurenta = a[i][j + 1] + a[i + 1][j] + a[i + 1][j + 1] + a[i][j];
+			if (sumaCurenta > sMax)
+				sMax = sumaCurenta;
+		}
+	}
+	cout << sMax;
 	return 0;
 }
