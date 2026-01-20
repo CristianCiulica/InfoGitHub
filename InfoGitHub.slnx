@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="InfoGitHub/InfoGitHub.vcxproj" />
+  <Project Path="InfoGitHub/InfoGitHub.vcxproj" Id="9792c0f5-bf25-4506-93f7-1ed622930f2f" />
 </Solution>

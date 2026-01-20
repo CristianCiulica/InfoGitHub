@@ -1,36 +1,23 @@
-#include <iostream>
-
+#include<iostream>
 using namespace std;
-int a[100][100],n ,i ,j;
-
-int cmmdc(int a,int b){
-    while (b!=0){
-    int r;
-    r=a%b;
-    a=b;
-    b=r;
-    }
-    return a;
+bool prim(int n) {
+	if (n < 2)
+		return false;
+	for (int i = 2; i < n / 2; i++)
+		if (n % i == 0)
+			return false;
+	return true;
 }
 
-int main()
-{
-  cin>> n;
-  for (i=0; i<n; i++)
-    for(j=0; j<n;j++)
-        cin>> a[i][j];
+void DNPI(int n) {
+	for (int d = 1; d <= n; d++)
+		if (d % 2 == 1 && prim(d) == false && n % d == 0)
+			cout << d << " ";
+}
 
-  int Sdeasupra=0, Ssub=0;
-
-    for (i=0; i<n; i++)
-        for(j=0; j<n;j++){
-            if (i<j)
-                Sdeasupra+=a[i][j];
-            if (i>j)
-                Ssub+=a[i][j];
-        }
-    cout << cmmdc(Sdeasupra,Ssub);
-
-
-    return 0;
+int main() {
+	int n;
+	cin >> n;
+	DNPI(n);
+	return 0;
 }
